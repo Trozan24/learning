@@ -20,4 +20,3 @@ solutions = [row[-1] for row in l]  # Last column contains the solutions
 # Display results
 print("Solutions:")
 print(solutions)
-print(solutions)
