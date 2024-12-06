@@ -1,0 +1,22 @@
+l = [[5, 1, 1, 1, 4], [1, 7, 1, 1, 12], [1, 1, 6, 1, -5], [1, 1, 1, 4, -6]]
+
+# Perform Gauss-Jordan Elimination
+for i in range(4):  # Iterate over each row (pivot row)
+    # Normalize the pivot row
+    pivot = l[i][i]
+    for j in range(5):  # Normalize the entire row
+        l[i][j] = l[i][j] / pivot
+
+    # Make all other rows zero in the current column
+    for j in range(4):  # Iterate over other rows
+        if j != i:  # Skip the pivot row
+            factor = l[j][i]  # Factor to eliminate
+            for k in range(5):  # Update all columns
+                l[j][k] = l[j][k] - factor * l[i][k]
+
+# Extract solutions
+solutions = [row[-1] for row in l]  # Last column contains the solutions
+
+# Display results
+print("Solutions:")
+print(solutions)
